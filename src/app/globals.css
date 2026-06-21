@@ -1,26 +1,226 @@
 @import "tailwindcss";
 
+@theme {
+  --color-brand-bg: var(--bg-main);
+  --color-brand-secondary: var(--bg-mint);
+  --color-brand-green: var(--green);
+  --color-brand-mint: var(--mint);
+  --color-brand-yellow: var(--yellow);
+  --color-brand-red: var(--pink);
+  
+  --color-bg-main: var(--bg-main);
+  --color-bg-mint: var(--bg-mint);
+  --color-card-bg: var(--card);
+  --color-ink: var(--ink);
+  --color-muted-text: var(--muted);
+  --color-green-accent: var(--green);
+  --color-green-dark: var(--green-dark);
+  --color-mint-highlight: var(--mint);
+  --color-yellow-accent: var(--yellow);
+  --color-pink-accent: var(--pink);
+  --color-blue-accent: var(--blue);
+  --color-orange-accent: var(--orange);
+  --color-brutalist-border: var(--border);
+  --color-brutalist-shadow: var(--shadow);
+  
+  --font-sans: var(--font-sans), system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-display), 'Luckiest Guy', cursive;
+  --font-grotesque: var(--font-grotesque), 'Darker Grotesque', sans-serif;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  --bg-main: #F6F1E8;        /* warm paper background */
+  --bg-mint: #C8F3DC;        /* soft eco mint section */
+  --card: #FFFDF7;           /* warm white cards */
+  --ink: #06130B;            /* almost black text */
+  --muted: #4B6356;          /* muted green-gray text */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --green: #39E079;          /* main GreenTrace accent */
+  --green-dark: #0D8F45;     /* strong dark green */
+  --mint: #9EF0C0;           /* highlight mint */
+  --yellow: #FFD84D;         /* brutalist yellow */
+  --pink: #FF8FB8;           /* playful accent */
+  --blue: #7DD3FC;           /* optional data accent */
+  --orange: #FF9F43;         /* warning/accent */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --border: #06130B;
+  --shadow: #06130B;
+
+  --background: var(--bg-main);
+  --foreground: var(--ink);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-main) !important;
+  color: var(--ink) !important;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+h1 {
+  font-family: var(--font-display);
+}
+
+h2, h3, h4, h5 {
+  font-family: var(--font-grotesque);
+}
+
+/* Radial dot background pattern */
+.grid-bg {
+  background-image: radial-gradient(rgba(6, 19, 11, 0.1) 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+}
+
+/* Neo-Brutalist Box Style */
+.neo-box {
+  background-color: var(--card);
+  color: var(--ink);
+  border: 2px solid var(--border);
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 5px 6px 0px 0px var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.neo-box-hover:hover {
+  transform: translate(-2px, -3px);
+  box-shadow: 7px 9px 0px 0px var(--shadow);
+}
+
+/* Neo-Brutalist Button Style */
+.neo-btn {
+  cursor: pointer;
+  font-family: var(--font-grotesque);
+  font-weight: 900;
+  font-size: 1.25rem;
+  border: 2px solid var(--border);
+  background-color: var(--pink);
+  color: var(--ink);
+  padding: 10px 20px;
+  border-radius: 14px;
+  box-shadow: 4px 4px 0px 0px var(--shadow);
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.neo-btn:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px 0px var(--shadow);
+}
+
+.neo-btn-green {
+  background-color: var(--green);
+}
+
+.neo-btn-yellow {
+  background-color: var(--yellow);
+}
+
+.neo-btn-cyan {
+  background-color: var(--blue);
+}
+
+/* Progress bar container */
+.neo-progress-container {
+  background-color: rgba(6, 19, 11, 0.05);
+  border: 2px solid var(--border);
+  box-shadow: 3px 3px 0px 0px var(--shadow);
+  border-radius: 50px;
+  height: 24px;
+  width: 100%;
+  margin-top: 8px;
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+.neo-progress-bar {
+  background-color: var(--green);
+  height: 100%;
+  border-right: 2px solid var(--border);
+}
+
+/* Table styles */
+.neo-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 8px;
+}
+
+.neo-table th {
+  font-family: var(--font-grotesque);
+  font-size: 1.35rem;
+  text-align: left;
+  font-weight: 900;
+  padding: 8px 12px;
+  color: var(--ink);
+}
+
+.neo-table td {
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  background-color: var(--card);
+  box-shadow: 2px 2px 0px 0px var(--shadow);
+  color: var(--ink);
+}
+
+.neo-table td:first-child {
+  background-color: var(--border);
+  color: var(--card);
+  font-weight: bold;
+}
+
+/* Marquee ticker */
+.marquee-feed {
+  margin: 0 auto;
+  white-space: nowrap;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 8px;
+  background-color: var(--pink);
+  border-top: 2px solid var(--border);
+  z-index: 30;
+}
+    
+.marquee-feed > p {
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquee-scroll 24s linear infinite;
+  margin: 0;
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.marquee-feed span {
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-100%, 0);
+  }
+}
+
+/* Float animation for the sun/earth */
+.float-sun {
+  transform: translateY(0px);
+  animation: floating 6s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-16px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
