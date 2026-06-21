@@ -31,8 +31,8 @@ export const AppShell: React.FC<{ children: React.ReactNode }> = ({ children }) 
     );
   }
 
-  // Root landing and login pages are accessible without auth check
-  if (pathname === "/" || pathname === "/login") {
+  // Root landing, login, and signup pages are accessible without auth check
+  if (pathname === "/" || pathname === "/login" || pathname === "/signup") {
     return (
       <div className="min-h-screen bg-brand-bg text-black relative overflow-x-hidden pb-16">
         {children}
