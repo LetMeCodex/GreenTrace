@@ -4,7 +4,7 @@ import React from "react";
 import { usePathname } from "next/navigation";
 import { Sidebar } from "./Sidebar";
 import { MobileNav } from "./MobileNav";
-import { useApp } from "../../context/AppContext";
+import { useApp } from "@/context/AppContext";
 import { OnboardingFlow } from "../onboarding/OnboardingFlow";
 import { Leaf } from "lucide-react";
 

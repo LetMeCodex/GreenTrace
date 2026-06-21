@@ -97,8 +97,9 @@ export default function SignupPage() {
         {/* Email & Password Form */}
         <form onSubmit={handleSignup} className="mt-6 space-y-4">
           <div>
-            <label className="text-xs font-black uppercase tracking-wider block">Email</label>
+            <label htmlFor="signup-email-input" className="text-xs font-black uppercase tracking-wider block">Email</label>
             <input
+              id="signup-email-input"
               type="email"
               required
               className="mt-2 w-full rounded-xl border-2 border-black bg-white px-4 py-3 text-sm font-bold outline-none focus:bg-[#C8F3DC] transition-all"
@@ -109,8 +110,9 @@ export default function SignupPage() {
           </div>
 
           <div>
-            <label className="text-xs font-black uppercase tracking-wider block">Password</label>
+            <label htmlFor="signup-password-input" className="text-xs font-black uppercase tracking-wider block">Password</label>
             <input
+              id="signup-password-input"
               type="password"
               required
               className="mt-2 w-full rounded-xl border-2 border-black bg-white px-4 py-3 text-sm font-bold outline-none focus:bg-[#C8F3DC] transition-all"

@@ -132,8 +132,9 @@ export default function LoginPage() {
         {/* Email & Password Form */}
         <form onSubmit={handleEmailLogin} className="mt-6 space-y-4">
           <div>
-            <label className="text-xs font-black uppercase tracking-wider block">Email</label>
+            <label htmlFor="email-input" className="text-xs font-black uppercase tracking-wider block">Email</label>
             <input
+              id="email-input"
               type="email"
               required
               disabled={!isSupabaseConfigured}
@@ -145,8 +146,9 @@ export default function LoginPage() {
           </div>
 
           <div>
-            <label className="text-xs font-black uppercase tracking-wider block">Password</label>
+            <label htmlFor="password-input" className="text-xs font-black uppercase tracking-wider block">Password</label>
             <input
+              id="password-input"
               type="password"
               required
               disabled={!isSupabaseConfigured}

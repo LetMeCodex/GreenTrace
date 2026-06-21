@@ -21,7 +21,7 @@ import {
   Target,
   TrendingDown
 } from "lucide-react";
-import { useApp } from "../../context/AppContext";
+import { useApp } from "@/context/AppContext";
 
 export default function Profile() {
   const { user, entries, actions, badges, updateUserProfile, resetAllData, signOutUser } = useApp();
@@ -182,10 +182,11 @@ export default function Profile() {
                 
                 {/* Email (Read-Only) */}
                 <div className="sm:col-span-2">
-                  <label className="text-[10px] text-brand-muted uppercase font-bold tracking-wider block mb-1.5">Email Address</label>
+                  <label htmlFor="profile-email-input" className="text-[10px] text-brand-muted uppercase font-bold tracking-wider block mb-1.5">Email Address</label>
                   <div className="relative">
                     <Mail className="absolute left-3 top-3 w-4 h-4 text-brand-muted" />
                     <input 
+                      id="profile-email-input"
                       type="text" 
                       readOnly
                       value={user?.email || "No email linked"} 
@@ -196,10 +197,11 @@ export default function Profile() {
 
                 {/* Full Name */}
                 <div>
-                  <label className="text-[10px] text-brand-muted uppercase font-bold tracking-wider block mb-1.5">Full Name</label>
+                  <label htmlFor="profile-name-input" className="text-[10px] text-brand-muted uppercase font-bold tracking-wider block mb-1.5">Full Name</label>
                   <div className="relative">
                     <User className="absolute left-3 top-3 w-4 h-4 text-brand-muted" />
                     <input 
+                      id="profile-name-input"
                       type="text" 
                       value={name} 
                       onChange={(e) => setName(e.target.value)}
@@ -210,10 +212,11 @@ export default function Profile() {
 
                 {/* City */}
                 <div>
-                  <label className="text-[10px] text-brand-muted uppercase font-bold tracking-wider block mb-1.5">City</label>
+                  <label htmlFor="profile-city-input" className="text-[10px] text-brand-muted uppercase font-bold tracking-wider block mb-1.5">City</label>
                   <div className="relative">
                     <MapPin className="absolute left-3 top-3 w-4 h-4 text-brand-muted" />
                     <input 
+                      id="profile-city-input"
                       type="text" 
                       value={city} 
                       onChange={(e) => setCity(e.target.value)}
@@ -224,10 +227,11 @@ export default function Profile() {
 
                 {/* Transport Mode */}
                 <div>
-                  <label className="text-[10px] text-brand-muted uppercase font-bold tracking-wider block mb-1.5">Main Transport Mode</label>
+                  <label htmlFor="profile-transport-select" className="text-[10px] text-brand-muted uppercase font-bold tracking-wider block mb-1.5">Main Transport Mode</label>
                   <div className="relative">
                     <Navigation className="absolute left-3 top-3 w-4 h-4 text-brand-muted" />
                     <select
+                      id="profile-transport-select"
                       value={mainTransportMode}
                       onChange={(e) => setMainTransportMode(e.target.value)}
                       className="w-full bg-brand-secondary/80 border border-brand-border rounded-xl py-2 pl-9 pr-3 text-xs text-brand-text focus:outline-none focus:border-brand-green/45"
@@ -245,10 +249,11 @@ export default function Profile() {
 
                 {/* Diet Type */}
                 <div>
-                  <label className="text-[10px] text-brand-muted uppercase font-bold tracking-wider block mb-1.5">Diet Type</label>
+                  <label htmlFor="profile-diet-select" className="text-[10px] text-brand-muted uppercase font-bold tracking-wider block mb-1.5">Diet Type</label>
                   <div className="relative">
                     <UtensilsCrossed className="absolute left-3 top-3 w-4 h-4 text-brand-muted" />
                     <select
+                      id="profile-diet-select"
                       value={dietType}
                       onChange={(e) => setDietType(e.target.value)}
                       className="w-full bg-brand-secondary/80 border border-brand-border rounded-xl py-2 pl-9 pr-3 text-xs text-brand-text focus:outline-none focus:border-brand-green/45"
@@ -264,10 +269,11 @@ export default function Profile() {
 
                 {/* Green Score Goal */}
                 <div>
-                  <label className="text-[10px] text-brand-muted uppercase font-bold tracking-wider block mb-1.5">Green Score Goal (1-100)</label>
+                  <label htmlFor="profile-score-goal-input" className="text-[10px] text-brand-muted uppercase font-bold tracking-wider block mb-1.5">Green Score Goal (1-100)</label>
                   <div className="relative">
                     <Target className="absolute left-3 top-3 w-4 h-4 text-brand-muted" />
                     <input 
+                      id="profile-score-goal-input"
                       type="number"
                       min="1"
                       max="100"
@@ -280,10 +286,11 @@ export default function Profile() {
 
                 {/* Weekly Reduction Goal */}
                 <div>
-                  <label className="text-[10px] text-brand-muted uppercase font-bold tracking-wider block mb-1.5">Weekly Reduction Goal (%)</label>
+                  <label htmlFor="profile-reduction-goal-input" className="text-[10px] text-brand-muted uppercase font-bold tracking-wider block mb-1.5">Weekly Reduction Goal (%)</label>
                   <div className="relative">
                     <TrendingDown className="absolute left-3 top-3 w-4 h-4 text-brand-muted" />
                     <input 
+                      id="profile-reduction-goal-input"
                       type="number"
                       min="1"
                       max="100"

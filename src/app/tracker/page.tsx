@@ -14,7 +14,7 @@ import {
   Footprints,
   RotateCcw
 } from "lucide-react";
-import { useApp } from "../../context/AppContext";
+import { useApp } from "@/context/AppContext";
 import { calculateDailyTotal, calculateGreenScore } from "../../lib/carbonCalculator";
 
 const CATEGORIES = [
@@ -147,8 +147,9 @@ export default function Tracker() {
           {/* Header Row: Date selector */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-brand-border">
             <div className="flex items-center gap-3">
-              <label className="text-xs text-brand-muted uppercase font-bold tracking-wider">Tracking Date</label>
+              <label htmlFor="tracking-date-input" className="text-xs text-brand-muted uppercase font-bold tracking-wider">Tracking Date</label>
               <input 
+                id="tracking-date-input"
                 type="date" 
                 value={date} 
                 onChange={(e) => setDate(e.target.value)}
@@ -215,6 +216,7 @@ export default function Tracker() {
                         <button
                           key={item.id}
                           type="button"
+                          aria-pressed={travelMode === item.id}
                           onClick={() => setTravelMode(item.id)}
                           className={`py-3 rounded-xl border text-xs font-semibold transition-all ${
                             travelMode === item.id 
@@ -231,10 +233,11 @@ export default function Tracker() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <div className="flex justify-between items-center mb-1.5">
-                        <label className="text-xs font-bold text-brand-muted uppercase tracking-wider">Distance (km)</label>
+                        <label htmlFor="travel-distance-input" className="text-xs font-bold text-brand-muted uppercase tracking-wider">Distance (km)</label>
                         <span className="text-xs font-bold text-brand-cyan">{travelDistance} km</span>
                       </div>
                       <input 
+                        id="travel-distance-input"
                         type="range" 
                         min="0" 
                         max="120" 
@@ -249,6 +252,7 @@ export default function Tracker() {
                       <div className="flex items-center gap-3">
                         <button 
                           type="button" 
+                          aria-label="Decrease trips"
                           onClick={() => setTravelTrips(prev => Math.max(1, prev - 1))}
                           className="w-9 h-9 rounded-xl border border-brand-border bg-brand-secondary/60 text-brand-text flex items-center justify-center hover:bg-white/5 text-lg font-bold"
                         >
@@ -257,6 +261,7 @@ export default function Tracker() {
                         <span className="text-sm font-bold text-brand-text w-6 text-center">{travelTrips}</span>
                         <button 
                           type="button" 
+                          aria-label="Increase trips"
                           onClick={() => setTravelTrips(prev => prev + 1)}
                           className="w-9 h-9 rounded-xl border border-brand-border bg-brand-secondary/60 text-brand-text flex items-center justify-center hover:bg-white/5 text-lg font-bold"
                         >
@@ -290,6 +295,7 @@ export default function Tracker() {
                         <button
                           key={item.id}
                           type="button"
+                          aria-pressed={foodMeal === item.id}
                           onClick={() => setFoodMeal(item.id)}
                           className={`py-3 px-3 rounded-xl border text-xs font-semibold text-left transition-all ${
                             foodMeal === item.id 
@@ -310,6 +316,7 @@ export default function Tracker() {
                     </div>
                     <button
                       type="button"
+                      aria-pressed={foodDelivery}
                       onClick={() => setFoodDelivery(!foodDelivery)}
                       className={`text-xs font-bold px-4 py-2 rounded-xl border transition-all ${
                         foodDelivery 
@@ -334,10 +341,11 @@ export default function Tracker() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <div className="flex justify-between items-center mb-1.5">
-                        <label className="text-xs font-bold text-brand-muted uppercase tracking-wider">Air Conditioner (Hours)</label>
+                        <label htmlFor="energy-ac-input" className="text-xs font-bold text-brand-muted uppercase tracking-wider">Air Conditioner (Hours)</label>
                         <span className="text-xs font-bold text-brand-red">{energyAc} hrs</span>
                       </div>
                       <input 
+                        id="energy-ac-input"
                         type="range" 
                         min="0" 
                         max="24" 
@@ -349,10 +357,11 @@ export default function Tracker() {
 
                     <div>
                       <div className="flex justify-between items-center mb-1.5">
-                        <label className="text-xs font-bold text-brand-muted uppercase tracking-wider">Electric Fan (Hours)</label>
+                        <label htmlFor="energy-fan-input" className="text-xs font-bold text-brand-muted uppercase tracking-wider">Electric Fan (Hours)</label>
                         <span className="text-xs font-bold text-brand-text">{energyFan} hrs</span>
                       </div>
                       <input 
+                        id="energy-fan-input"
                         type="range" 
                         min="0" 
                         max="24" 
@@ -366,10 +375,11 @@ export default function Tracker() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <div className="flex justify-between items-center mb-1.5">
-                        <label className="text-xs font-bold text-brand-muted uppercase tracking-wider">Lights & Bulbs (Hours)</label>
+                        <label htmlFor="energy-lights-input" className="text-xs font-bold text-brand-muted uppercase tracking-wider">Lights & Bulbs (Hours)</label>
                         <span className="text-xs font-bold text-brand-text">{energyLights} hrs</span>
                       </div>
                       <input 
+                        id="energy-lights-input"
                         type="range" 
                         min="0" 
                         max="24" 
@@ -381,10 +391,11 @@ export default function Tracker() {
 
                     <div>
                       <div className="flex justify-between items-center mb-1.5">
-                        <label className="text-xs font-bold text-brand-muted uppercase tracking-wider">Devices Charged (Count)</label>
+                        <label htmlFor="energy-devices-input" className="text-xs font-bold text-brand-muted uppercase tracking-wider">Devices Charged (Count)</label>
                         <span className="text-xs font-bold text-brand-text">{energyDevices} devices</span>
                       </div>
                       <input 
+                        id="energy-devices-input"
                         type="range" 
                         min="0" 
                         max="15" 
@@ -402,6 +413,7 @@ export default function Tracker() {
                         <button
                           key={style}
                           type="button"
+                          aria-pressed={energyStyle === style}
                           onClick={() => setEnergyStyle(style)}
                           className={`py-3 rounded-xl border text-xs font-semibold capitalize transition-all ${
                             energyStyle === style 
@@ -437,6 +449,7 @@ export default function Tracker() {
                       <button
                         key={item.id}
                         type="button"
+                        aria-pressed={shoppingType === item.id}
                         onClick={() => setShoppingType(item.id)}
                         className={`w-full py-3.5 px-4 rounded-xl border text-left flex justify-between items-center transition-all ${
                           shoppingType === item.id 
@@ -479,6 +492,7 @@ export default function Tracker() {
                       </div>
                       <button
                         type="button"
+                        aria-pressed={item.state}
                         onClick={() => item.setState(!item.state)}
                         className={`text-xs font-bold px-4 py-1.5 rounded-xl border transition-all ${
                           item.state 

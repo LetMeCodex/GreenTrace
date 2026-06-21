@@ -11,7 +11,7 @@ import {
   HelpCircle,
   HelpCircle as QuestionIcon
 } from "lucide-react";
-import { useApp } from "../../context/AppContext";
+import { useApp } from "@/context/AppContext";
 import { 
   calculateTravelEmission, 
   calculateFoodEmission, 

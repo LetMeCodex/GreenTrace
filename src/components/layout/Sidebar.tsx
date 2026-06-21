@@ -15,7 +15,7 @@ import {
   Flame,
   ArrowLeft
 } from "lucide-react";
-import { useApp } from "../../context/AppContext";
+import { useApp } from "@/context/AppContext";
 
 export const navItems = [
   { label: "Dashboard", href: "/dashboard", icon: LayoutDashboard },

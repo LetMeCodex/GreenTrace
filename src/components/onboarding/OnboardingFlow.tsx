@@ -18,7 +18,7 @@ import {
   ShoppingBag,
   Sparkles
 } from "lucide-react";
-import { useApp } from "../../context/AppContext";
+import { useApp } from "@/context/AppContext";
 import { calculateDailyTotal, calculateGreenScore } from "../../lib/carbonCalculator";
 
 export const OnboardingFlow: React.FC = () => {
@@ -174,10 +174,11 @@ export const OnboardingFlow: React.FC = () => {
 
                 <div className="space-y-4">
                   <div>
-                    <label className="text-xs text-brand-muted font-semibold block mb-1.5">WHAT IS YOUR NAME?</label>
+                    <label htmlFor="onboarding-name-input" className="text-xs text-brand-muted font-semibold block mb-1.5">WHAT IS YOUR NAME?</label>
                     <div className="relative">
                       <UserIcon className="absolute left-3.5 top-3.5 w-5 h-5 text-brand-muted" />
                       <input 
+                        id="onboarding-name-input"
                         type="text" 
                         placeholder="e.g. Anish" 
                         value={name}
@@ -188,10 +189,11 @@ export const OnboardingFlow: React.FC = () => {
                   </div>
 
                   <div>
-                    <label className="text-xs text-brand-muted font-semibold block mb-1.5">WHICH CITY DO YOU LIVE IN?</label>
+                    <label htmlFor="onboarding-city-input" className="text-xs text-brand-muted font-semibold block mb-1.5">WHICH CITY DO YOU LIVE IN?</label>
                     <div className="relative">
                       <MapPin className="absolute left-3.5 top-3.5 w-5 h-5 text-brand-muted" />
                       <input 
+                        id="onboarding-city-input"
                         type="text" 
                         placeholder="e.g. Bengaluru" 
                         value={city}
@@ -208,6 +210,7 @@ export const OnboardingFlow: React.FC = () => {
                         <button
                           key={num}
                           type="button"
+                          aria-pressed={householdSize === num}
                           onClick={() => setHouseholdSize(num)}
                           className={`py-3 rounded-xl border font-semibold text-sm transition-all duration-300 ${
                             householdSize === num 
@@ -248,6 +251,7 @@ export const OnboardingFlow: React.FC = () => {
                         <button
                           key={item.id}
                           type="button"
+                          aria-pressed={commuteMode === item.id}
                           onClick={() => setCommuteMode(item.id)}
                           className={`py-3 rounded-xl border text-xs font-semibold transition-all duration-300 ${
                             commuteMode === item.id 
@@ -263,10 +267,11 @@ export const OnboardingFlow: React.FC = () => {
 
                   <div>
                     <div className="flex justify-between items-center mb-1">
-                      <label className="text-xs text-brand-muted font-semibold block">DAILY TRAVEL DISTANCE</label>
+                      <label htmlFor="onboarding-distance-input" className="text-xs text-brand-muted font-semibold block">DAILY TRAVEL DISTANCE</label>
                       <span className="text-sm font-bold text-brand-green">{commuteDistance} km</span>
                     </div>
                     <input 
+                      id="onboarding-distance-input"
                       type="range" 
                       min="1" 
                       max="100" 
@@ -306,6 +311,7 @@ export const OnboardingFlow: React.FC = () => {
                         <button
                           key={item.label}
                           type="button"
+                          aria-pressed={diet === item.label}
                           onClick={() => setDiet(item.label)}
                           className={`w-full py-3 px-4 rounded-xl border text-left flex justify-between items-center transition-all duration-300 ${
                             diet === item.label 
@@ -330,6 +336,7 @@ export const OnboardingFlow: React.FC = () => {
                         <button
                           key={option}
                           type="button"
+                          aria-pressed={delivery === option}
                           onClick={() => setDelivery(option)}
                           className={`py-3 rounded-xl border text-xs font-semibold transition-all duration-300 ${
                             delivery === option 
@@ -362,6 +369,7 @@ export const OnboardingFlow: React.FC = () => {
                         <button
                           key={option}
                           type="button"
+                          aria-pressed={acUsage === option}
                           onClick={() => setAcUsage(option)}
                           className={`py-3 rounded-xl border text-xs font-semibold transition-all duration-300 ${
                             acUsage === option 
@@ -386,6 +394,7 @@ export const OnboardingFlow: React.FC = () => {
                         <button
                           key={item.label}
                           type="button"
+                          aria-pressed={electricityStyle === item.label}
                           onClick={() => setElectricityStyle(item.label)}
                           className={`py-3 px-2 rounded-xl border text-center flex flex-col items-center justify-center transition-all duration-300 ${
                             electricityStyle === item.label 
@@ -419,6 +428,7 @@ export const OnboardingFlow: React.FC = () => {
                         <button
                           key={option}
                           type="button"
+                          aria-pressed={shoppingFreq === option}
                           onClick={() => setShoppingFreq(option)}
                           className={`py-3 rounded-xl border text-xs font-semibold transition-all duration-300 ${
                             shoppingFreq === option 
@@ -439,6 +449,7 @@ export const OnboardingFlow: React.FC = () => {
                         <button
                           key={option}
                           type="button"
+                          aria-pressed={reusables === option}
                           onClick={() => setReusables(option)}
                           className={`py-3 rounded-xl border text-xs font-semibold transition-all duration-300 ${
                             reusables === option 

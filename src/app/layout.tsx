@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Public_Sans, Luckiest_Guy, Darker_Grotesque } from "next/font/google";
 import "./globals.css";
-import { AppProvider } from "../context/AppContext";
+import { AppProvider } from "@/context/AppContext";
 import { AppShell } from "../components/layout/AppShell";
 
 const publicSans = Public_Sans({

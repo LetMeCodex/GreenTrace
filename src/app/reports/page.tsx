@@ -12,7 +12,7 @@ import {
   Download,
   Leaf
 } from "lucide-react";
-import { useApp } from "../../context/AppContext";
+import { useApp } from "@/context/AppContext";
 
 export default function Reports() {
   const { entries, actions } = useApp();

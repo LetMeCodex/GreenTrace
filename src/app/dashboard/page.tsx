@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { useApp } from "../../context/AppContext";
+import { useApp } from "@/context/AppContext";
 import { calculateTravelEmission, calculateFoodEmission, calculateEnergyEmission, calculateShoppingEmission, calculateWasteEmission } from "../../lib/carbonCalculator";
 
 export default function Dashboard() {
